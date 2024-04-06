@@ -20,6 +20,7 @@ Anime.js: A JavaScript animation library used for the homepage animation.
 Navigation Bar: A responsive navigation bar that allows users to easily navigate through the different sections of the website.
 
 About Me: A section that provides an overview of my background, interests, and skills.
+
 Projects: A section that showcases my past projects, including descriptions and links to the project demos.
 
 Social Media Links: Links to my GitHub, LinkedIn, and resume, allowing users to connect with me!

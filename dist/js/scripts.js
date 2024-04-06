@@ -117,7 +117,6 @@ function generateBouncingAnimation() {
   }
   requestAnimationFrame(updateBouncingDot);
 }
-
 generateBouncingAnimation();
 
 /* for the project cards */
