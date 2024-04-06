@@ -3,6 +3,7 @@
 /* body */
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
 }
 
@@ -11,13 +12,43 @@ body {
   font-size: 50px;
 }
 
-.masthead {  
-  padding-top: calc(6rem + 74px);
+.masthead {
+  padding-top: calc(6rem + 100px); 
   padding-bottom: 6rem;
-  min-height: 200px; 
-  padding-bottom: 6rem;
+  min-height: 200px;
   font-size: 45px;
   text-align: center;
+  position: relative;
+}
+
+/* navigation  bar */
+
+.navbar {
+  z-index: 1000;
+  position: fixed;
+  top: -20px;
+  width: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  background-color: rgba(63, 5, 5, 0.877);
+  height: 85px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 25px;
+  padding: 30px;
+  display: block;
+}
+
+nav ul li a:hover {
+  background-color: #d90000;;
 }
 
 /* bouncing dot h1*/
@@ -131,7 +162,6 @@ body {
   display: inline-block;
   line-height: 1em;
 }
-
 
 /* about me page */
 
