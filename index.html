@@ -1,153 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <title>Srimathi Vadivel</title>
-        <link rel="stylesheet" href="style.css">
-        <link href="dist/css/styles.css" rel="stylesheet" type="text/css" />
-      </head>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Srimathi Vadivel</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <body>
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden; /* Prevent horizontal overflow */
+            background: linear-gradient(90deg, #4f0505, #521717);
+        }
 
-    <!-- navigation bar-->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#masthead">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#aboutme">About Me</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#projects">Projects</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    
-      <header class="masthead" id ="masthead">
-        <a class="nav-link" href="#masthead"></a>
-      
-        <!-- heading-->
-        <div class="bouncing-container">
-          <h1 class="nav-link" id="mastgead">SRIMATHI VADIVEL</h2>
-          <div class="bouncing-dot"></div>
-        </div>
-      
-        <!-- image subheading-->
-        <h1 class="subhead">
-          <span class="text-wrapper">
-            <span class="letters">Aspiring Software Engineer</span>
-          </span>
-        </h1>
-          
-        <br>
-      
-        <div class="btn-social">
-          <a href="https://github.com/srimathivadivel" target="_blank" class="btn-link mx-2">github</a>
-          <a href="https://www.linkedin.com/in/srimathi-vadivel-137a351b1/" target="_blank" class="btn-link mx-2">linkedin</a>
-          <a href="https://drive.google.com/file/d/1C_YV1G03mvZ9AZdo9MnJl2xx3iyZfSQC/view?usp=sharing" target="_blank" class="btn-link mx-2">resume</a>
-        </div>
-      </header>
+        .section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+        }
 
-      <div class="aboutme">
-        <h2 class="nav-link" id="aboutme">ABOUT ME</h2>
-          <p> Hello! My name is Srimathi Vadivel, and I'm an aspiring software engineer based in Jersey City, NJ.</p>
-          <p> I am a student at Rutgers University studying Computer Science and Data Science. I am interested in exploring a career 
-            in technology and am open to any new opportunities! Below are the various langauges and frameworks that I have worked with throughout my years in highschool and university.
-            I've had the chance to work with quite a few programming languages and frameworks during my academic journey so far. </p>
+        .masthead {
+            background: inherit; /* Use the same background as the body */
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
 
-          <p> But if I'm being totally honest, my real interests lie in the world of DevOps and front-end development. There's just something 
-            incredibly satisfying about being able to craft beautiful, user-friendly interfaces and bring that creative flair to life in code. 
-            And with DevOps, I love the idea of streamlining the deployment and management processes, making sure everything runs smoothly behind 
-            the scenes. I know I've still got a lot to learn, but I'm excited to keep honing my skills in these areas. 
-            For now, though, I'm just focused on soaking up as much knowledge as I can and continuing to grow my passion for this field.</p>
+        .light-circle {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(182, 111, 111, 0.231) 0%, rgba(255,255,255,0) 80%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: all 0.1s ease;
+            mix-blend-mode: lighten;
+        }
 
-          <br>
-          <div class="btn-languages" role="group" aria-label="Languages">
-            <div class="btn btn-lan" style="pointer-events: none;">Java</div>
-            <div class="btn btn-lan" style="pointer-events: none;">Python</div>
-            <div class="btn btn-lan" style="pointer-events: none;">R</div>
-            <div class="btn btn-lan" style="pointer-events: none;">HTML5</div>
-            <div class="btn btn-lan" style="pointer-events: none;">CSS</div>
-            <div class="btn btn-lan" style="pointer-events: none;">Javascript</div>
-          </div>
-          
-          <div class="btn-frameworks" role="group" aria-label="Frameworks">
-            <div class="btn btn-frame" style="pointer-events: none;">Node.js</div>
-            <div class="btn btn-frame" style="pointer-events: none;">Angular.js</div>
-            <div class="btn btn-frame" style="pointer-events: none;">React</div>
-            <div class="btn btn-frame" style="pointer-events: none;">Django</div>
-            <div class="btn btn-frame" style="pointer-events: none;">Flask</div>
-            <div class="btn btn-frame" style="pointer-events: none;">Bootstrap</div>
-          </div>
+        .btn-social {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-            <br>
+        .btn-languages, .btn-frameworks {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
 
-          <p>Whenever I have the time to, I like to run! Whether that's outside or on the treadmill, I've been trying to 
-            get better and hopefully run more 5Ks! Running gives me with a sense of freedom and accomplishment, allowing me to 
-            challenge myself and push limits. Whether it's running outdoors, surrounded by nature's beauty, or inside on a 
-            treadmill, I'll take the opportunity to immerse myself in the motion of putting one foot in front of 
-            the other. It's a way to clear my mind, reduce stress, and its my way of finding a sense of balance in life. 
-            The endorphin rush and the feeling of accomplishment after a great run is incredibly rewarding and motivating.</p>
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
 
-      </div>
+        .card {
+            max-width: 300px;
+        }
 
-      <br>
+        .MuiAppBar-root {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
 
-      <div class="projects">
-        <h2 class="nav-link" id="projects">PROJECTS</h2>
-          <div class="card-container container-fluid">
-          
-            <div class="card row g-0">
-              <div class="col-md-4">
-                <img src="/src/assets/img/redimg.jpg" class="card-img-project1 img-fluid" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <a href="https://www.figma.com/proto/p7vG1uezZwYnQsNXKjJKWc/2blue-lofi-wireframe?node-id=260-4518&scaling=scale-down&page-id=138%3A3038&starting-point-node-id=265%3A7293&show-proto-sidebar=1">
-                    <h5 class="card-title" style="text-align:center;">Hummer</h5>
-                  </a>
-                  <p class="card-text">
-                    - An intuitive and visually engaging platform by creating wireframes, mockups, and conducted user testing to refine the design
-                    <br>
-                    - A UI/UX case study that allows users to rate, review, and discover their favorite songs and artists.
-                  </p>
-                </div>
-              </div>
-            </div>
-          
-            <div class="card row g-0">
-              <div class="col-md-4">
-                <img src="/src/assets/img/redimg.jpg" class="card-img-project1 img-fluid" alt="...">
-              </div>
-              <div class="col-md-8">
-               <div class="card-body">
-                  <a href="https://www.youtube.com/watch?v=w7MZEzt5yzI">
-                    <h5 class="card-title" style="text-align:center;">RU Sleepy</h5>
-                  </a>
-                  <p class="card-text">
-                    - Implemented Computer Vision techniques in Python, Arduino, and a serial device library to establish communication with C++ code.
-                    <br>
-                    - Collaborated in a team of three to develop a device aimed at aiding students in staying awake during extended study sessions and presented through a Youtube video.
-                  </p>
-                </div>
-              </div>              
-            </div>
-          </div>
-        </div>
-    
-      <!-- javascript sources-->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/bootstrap.bundle.min.js"></script>
-      <script src="dist/js/scripts.js"></script>
-      <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSGFpoO9xmv/+/z7nU7ELJ6EeAZWlCmGKZk4M1RtIDZOt6Xq/YD" crossorigin="anonymous"></script>
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoJtKh7z7lGz7fuP4F8nfdFvAOA6Gg/z6Y5J6XqqyGXYM2ntX5" crossorigin="anonymous"></script>          
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8+KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-  
-  </body>
+        .MuiToolbar-root {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .MuiCard-root {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .MuiCard-root:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .MuiTypography-h5 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .MuiTypography-h5 a:hover {
+            color: #480a0a; 
+        }
+
+        .MuiTypography-h5 a:hover {
+            color: #480a0a; 
+        }
+
+        .aboutme {
+            color: #fff;
+        }
+
+        .aboutme h4,
+        .aboutme p,
+        .aboutme button,
+        .aboutme button span {
+            color: #fff !important;
+        }
+
+        .card-container {
+          color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/react@latest/umd/react.development.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-dom@latest/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.development.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/babel-standalone@latest/babel.min.js" crossorigin="anonymous"></script>
+
+    <script type="text/babel">
+        const {
+            AppBar, Toolbar, Typography, Button, Card, CardContent, CardMedia, Grid, Container, CssBaseline, CardActions
+        } = MaterialUI;
+
+        function App() {
+            React.useEffect(() => {
+                const circle = document.createElement('div');
+                circle.className = 'light-circle';
+                document.body.appendChild(circle);
+
+                const moveCircle = (e) => {
+                    requestAnimationFrame(() => {
+                        circle.style.top = `${e.clientY}px`;
+                        circle.style.left = `${e.clientX}px`;
+                    });
+                };
+
+                window.addEventListener('mousemove', moveCircle);
+
+                return () => {
+                    window.removeEventListener('mousemove', moveCircle);
+                    document.body.removeChild(circle);
+                };
+            }, []);
+
+            return (
+                <React.Fragment>
+                    <CssBaseline />
+                    <AppBar position="static" style={{ backgroundColor: 'rgba(63, 5, 5, 0.877)', width: '100%' }}>
+                        <Toolbar style={{ width: '100%' }}>
+                            <Button color="inherit" href="#masthead">Home</Button>
+                            <Button color="inherit" href="#aboutme">About Me</Button>
+                            <Button color="inherit" href="#projects">Projects</Button>
+                        </Toolbar>
+                    </AppBar>
+
+                    <Container className="container">
+                        <header className="section masthead" id="masthead">
+                            <div className="bouncing-container">
+                                <Typography variant="h2" style={{ color: '#fff' }}>SRIMATHI VADIVEL</Typography>
+                                <div className="bouncing-dot"></div>
+                            </div>
+                            <Typography variant="h4" className="subhead" style={{ color: '#fff' }}>Aspiring Software Engineer</Typography>
+                            <div className="btn-social">
+                                <Button href="https://github.com/srimathivadivel" target="_blank" style={{ color: '#fff', backgroundColor: '#d90000' }}>Github</Button>
+                                <Button href="https://maroon-marika-7.tiiny.site/" target="_blank" style={{ color: '#fff', backgroundColor: '#d90000' }}>Resume</Button>
+                                <Button href="https://www.linkedin.com/in/srimathi-vadivel-137a351b1/" target="_blank" style={{ color: '#fff', backgroundColor: '#d90000' }}>LinkedIn</Button>
+                            </div>
+                        </header>
+
+                        <section className="section aboutme" id="aboutme">
+                            <Typography variant="h4" style={{ marginBottom: '20px', color: '#fff' }}>ABOUT ME</Typography>
+                            <Typography variant="body1">
+                                Hello! My name is Srimathi Vadivel, and I'm an aspiring software engineer based in Jersey City, NJ.
+                                I am a student at Rutgers University studying Computer Science and Data Science. I am interested in exploring a career 
+                                in technology and am open to any new opportunities! Below are the various languages and frameworks that I have worked with throughout my years in highschool and university.
+                                I've had the chance to work with quite a few programming languages and frameworks during my academic journey so far.
+                            </Typography>
+                            <Typography variant="body1" style={{ marginTop: '20px' }}>
+                                But if I'm being totally honest, my real interests lie in the world of DevOps and front-end development. There's just something 
+                                incredibly satisfying about being able to craft beautiful, user-friendly interfaces and bring that creative flair to life in code. 
+                                And with DevOps, I love the idea of streamlining the deployment and management processes, making sure everything runs smoothly behind 
+                                the scenes. I know I've still got a lot to learn, but I'm excited to keep honing my skills in these areas. 
+                                For now, though, I'm just focused on soaking up as much knowledge as I can and continuing to grow my passion for this field.
+                            </Typography>
+
+                            <Grid container spacing={2} className="btn-languages" role="group" aria-label="Languages">
+                                {['Java', 'Python', 'R', 'HTML5', 'CSS', 'Javascript'].map((lang) => (
+                                    <Grid item key={lang}>
+                                        <Button variant="outlined" style={{ pointerEvents: 'none', backgroundColor: '#ddb2b2', color: 'rgba(63, 5, 5, 0.877)' }}>{lang}
+                                        </Button>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                            
+                            <Grid container spacing={2} className="btn-frameworks" role="group" aria-label="Frameworks">
+                                {['Node.js', 'React', 'Django', 'Flask', 'Bootstrap', 'Material UI'].map((framework) => (
+                                    <Grid item key={framework}>
+                                        <Button variant="outlined" style={{ pointerEvents: 'none', backgroundColor: '#ddb2b2', color: 'rgba(63, 5, 5, 0.877)'}}>{framework}
+                                        </Button>
+                                    </Grid>
+                                ))}
+                            </Grid>
+
+                            <Typography variant="body1" style={{ marginTop: '20px' }}>
+                                Whenever I have the time to, I like to run! Whether that's outside or on the treadmill, I've been trying to 
+                                get better and hopefully run more 5Ks! Running gives me with a sense of freedom and accomplishment, allowing me to 
+                                challenge myself and push limits. Whether it's running outdoors, surrounded by nature's beauty, or inside on a 
+                                treadmill, I'll take the opportunity to immerse myself in the motion of putting one foot in front of 
+                                the other. It's a way to clear my mind, reduce stress, and its my way of finding a sense of balance in life. 
+                                The endorphin rush and the feeling of accomplishment after a great run is incredibly rewarding and motivating.
+                            </Typography>
+                        </section>
+
+                        <section className="section projects" id="projects">
+                            <Typography variant="h4" style={{ marginBottom: '20px', color: '#fff'}}>PROJECTS</Typography>
+                            <Grid container spacing={4} justifyContent="center">
+                                {[
+                                    {
+                                        title: 'Hummer',
+                                        link: 'https://www.figma.com/proto/p7vG1uezZwYnQsNXKjJKWc/2blue-lofi-wireframe?node-id=260-4518&scaling=scale-down&page-id=138%3A3038&starting-point-node-id=265%3A7293&show-proto-sidebar=1',
+                                        description: '- An intuitive and visually engaging platform by creating wireframes, mockups, and conducted user testing to refine the design. A UI/UX case study that allows users to rate, review, and discover their favorite songs and artists.',
+                                        image: 'redimg.jpg'
+                                    },
+                                    {
+                                        title: 'RUSleepy',
+                                        link: 'https://www.youtube.com/watch?v=w7MZEzt5yzI',
+                                        description: '- Implemented Computer Vision techniques in Python, Arduino, and a serial device library to establish communication with C++ code. Collaborated in a team of three to develop a device aimed at aiding students in staying awake during extended study sessions and presented through a Youtube video.',
+                                        image: 'redimg.jpg'
+                                    },
+                                    {
+                                        title: 'AirBnb Clone',
+                                        link: 'https://github.com/srimathivadivel/AirBnbClone.git',
+                                        description: '- Developed an iOS application using Swift that replicates core features of the Airbnb app. Implemented an intuitive user interface with SwiftUI, featuring available listings, a custom search bar for filtering, and listing images, descriptions, amenities, and pricing.',
+                                        image: 'redimg.jpg'
+                                    }
+                                ].map((project) => (
+                                    <Grid item xs={12} sm={6} md={4} key={project.title}>
+                                        <Card style={{ height: '100%', display: 'flex', flexDirection: 'column', borderRadius: '15px', boxShadow: '0 8px 16px rgba(0, 0, 0, 0.3)', transition: 'transform 0.3s' }}>
+                                            <CardMedia
+                                                component="img"
+                                                height="200"
+                                                image={project.image} 
+                                                alt={project.title}
+                                            />
+                                            <CardContent style={{ flexGrow: 1 }}>
+                                                <Typography gutterBottom variant="h5" component="h2" style={{ color: 'rgba(189, 4, 4, 0.877)', textAlign: 'center' }}>
+                                                    <a href={project.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>{project.title}</a>
+                                                </Typography>
+                                                <Typography variant="body2" color="textSecondary" component="p" style={{ textAlign: 'justify' }}>
+                                                    {project.description}
+                                                </Typography>
+                                            </CardContent>
+                                            <CardActions style={{ justifyContent: 'center' }}>
+                                                <Button size="small" color="primary" href={project.link} target="_blank" rel="noopener noreferrer">
+                                                    Learn More
+                                                </Button>
+                                            </CardActions>
+                                        </Card>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </section>
+                    </Container>
+                </React.Fragment>
+            );
+        }
+
+        ReactDOM.render(
+            <App />,
+            document.querySelector('#root')
+        );
+    </script>
+</body>
 </html>
