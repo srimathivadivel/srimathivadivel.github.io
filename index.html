@@ -4,143 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Srimathi Vadivel</title>
+    <link rel="stylesheet" href="dist/css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <style>
-        /* CSS Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-            width: 100%;
-            font-family: 'Roboto', sans-serif;
-            scroll-behavior: smooth;
-            overflow-x: hidden; /* Prevent horizontal overflow */
-            background: linear-gradient(90deg, #4f0505, #521717);
-        }
-
-        .section {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            width: 100%;
-        }
-
-        .masthead {
-            background: inherit; /* Use the same background as the body */
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .light-circle {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(182, 111, 111, 0.231) 0%, rgba(255,255,255,0) 80%);
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: all 0.1s ease;
-            mix-blend-mode: lighten;
-        }
-
-        .btn-social {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .btn-languages, .btn-frameworks {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .card-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .card {
-            max-width: 300px;
-        }
-
-        .MuiAppBar-root {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .MuiToolbar-root {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 100%;
-            padding-left: 0;
-            padding-right: 0;
-        }
-
-        .MuiCard-root {
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .MuiCard-root:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
-        }
-
-        .MuiTypography-h5 a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .MuiTypography-h5 a:hover {
-            color: #480a0a; 
-        }
-
-        .MuiTypography-h5 a:hover {
-            color: #480a0a; 
-        }
-
-        .aboutme {
-            color: #fff;
-        }
-
-        .aboutme h4,
-        .aboutme p,
-        .aboutme button,
-        .aboutme button span {
-            color: #fff !important;
-        }
-
-        .card-container {
-          color: #fff;
-        }
-    </style>
 </head>
 
 <body>
     <div id="root"></div>
 
     <script src="https://unpkg.com/react@latest/umd/react.development.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/react-dom@latest/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/umd/react-dom.development.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/@material-ui/core@latest/umd/material-ui.development.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/babel-standalone@latest/babel.min.js" crossorigin="anonymous"></script>
 
@@ -181,8 +54,8 @@
                         </Toolbar>
                     </AppBar>
 
-                    <Container className="container">
-                        <header className="section masthead" id="masthead">
+                    <Container className="container" id="masthead">
+                        <header className="section masthead">
                             <div className="bouncing-container">
                                 <Typography variant="h2" style={{ color: '#fff' }}>SRIMATHI VADIVEL</Typography>
                                 <div className="bouncing-dot"></div>
@@ -194,8 +67,10 @@
                                 <Button href="https://www.linkedin.com/in/srimathi-vadivel-137a351b1/" target="_blank" style={{ color: '#fff', backgroundColor: '#d90000' }}>LinkedIn</Button>
                             </div>
                         </header>
+                    </Container>
 
-                        <section className="section aboutme" id="aboutme">
+                    <Container className="container" id="aboutme">
+                        <section className="section aboutme">
                             <Typography variant="h4" style={{ marginBottom: '20px', color: '#fff' }}>ABOUT ME</Typography>
                             <Typography variant="body1">
                                 Hello! My name is Srimathi Vadivel, and I'm an aspiring software engineer based in Jersey City, NJ.
@@ -211,55 +86,56 @@
                                 For now, though, I'm just focused on soaking up as much knowledge as I can and continuing to grow my passion for this field.
                             </Typography>
 
-                            <Grid container spacing={2} className="btn-languages" role="group" aria-label="Languages">
+                            <Grid container spacing={2} className="btn-languages" role="group" aria-label="Languages" style={{ marginTop: '40px' }}>
                                 {['Java', 'Python', 'R', 'HTML5', 'CSS', 'Javascript'].map((lang) => (
                                     <Grid item key={lang}>
-                                        <Button variant="outlined" style={{ pointerEvents: 'none', backgroundColor: '#ddb2b2', color: 'rgba(63, 5, 5, 0.877)' }}>{lang}
+                                        <Button variant="outlined" style={{ pointerEvents: 'none', backgroundColor: '#ddb2b2', color: 'rgba(63, 5, 5, 0.877)' }}>
+                                            {lang}
                                         </Button>
                                     </Grid>
                                 ))}
                             </Grid>
+
                             
                             <Grid container spacing={2} className="btn-frameworks" role="group" aria-label="Frameworks">
                                 {['Node.js', 'React', 'Django', 'Flask', 'Bootstrap', 'Material UI'].map((framework) => (
                                     <Grid item key={framework}>
-                                        <Button variant="outlined" style={{ pointerEvents: 'none', backgroundColor: '#ddb2b2', color: 'rgba(63, 5, 5, 0.877)'}}>{framework}
-                                        </Button>
+                                        <Button variant="outlined" style={{ pointerEvents: 'none', backgroundColor: '#ddb2b2', color: 'rgba(63, 5, 5, 0.877)' }}>{framework}</Button>
                                     </Grid>
                                 ))}
                             </Grid>
 
-                            <Typography variant="body1" style={{ marginTop: '20px' }}>
-                                Whenever I have the time to, I like to run! Whether that's outside or on the treadmill, I've been trying to 
-                                get better and hopefully run more 5Ks! Running gives me with a sense of freedom and accomplishment, allowing me to 
-                                challenge myself and push limits. Whether it's running outdoors, surrounded by nature's beauty, or inside on a 
-                                treadmill, I'll take the opportunity to immerse myself in the motion of putting one foot in front of 
-                                the other. It's a way to clear my mind, reduce stress, and its my way of finding a sense of balance in life. 
-                                The endorphin rush and the feeling of accomplishment after a great run is incredibly rewarding and motivating.
-                            </Typography>
                         </section>
+                    </Container>
 
-                        <section className="section projects" id="projects">
-                            <Typography variant="h4" style={{ marginBottom: '20px', color: '#fff'}}>PROJECTS</Typography>
+                    <Container className="container" id="projects">
+                        <section className="section projects">
+                            <Typography variant="h4" style={{ marginBottom: '20px', color: '#fff' }}>PROJECTS</Typography>
                             <Grid container spacing={4} justifyContent="center">
                                 {[
                                     {
                                         title: 'Hummer',
                                         link: 'https://www.figma.com/proto/p7vG1uezZwYnQsNXKjJKWc/2blue-lofi-wireframe?node-id=260-4518&scaling=scale-down&page-id=138%3A3038&starting-point-node-id=265%3A7293&show-proto-sidebar=1',
                                         description: '- An intuitive and visually engaging platform by creating wireframes, mockups, and conducted user testing to refine the design. A UI/UX case study that allows users to rate, review, and discover their favorite songs and artists.',
-                                        image: 'redimg.jpg'
+                                        image: 'src/assets/img/redimg.jpg'
                                     },
                                     {
                                         title: 'RUSleepy',
                                         link: 'https://www.youtube.com/watch?v=w7MZEzt5yzI',
                                         description: '- Implemented Computer Vision techniques in Python, Arduino, and a serial device library to establish communication with C++ code. Collaborated in a team of three to develop a device aimed at aiding students in staying awake during extended study sessions and presented through a Youtube video.',
-                                        image: 'redimg.jpg'
+                                        image: 'src/assets/img/redimg.jpg'
                                     },
                                     {
                                         title: 'AirBnb Clone',
                                         link: 'https://github.com/srimathivadivel/AirBnbClone.git',
                                         description: '- Developed an iOS application using Swift that replicates core features of the Airbnb app. Implemented an intuitive user interface with SwiftUI, featuring available listings, a custom search bar for filtering, and listing images, descriptions, amenities, and pricing.',
-                                        image: 'redimg.jpg'
+                                        image: 'src/assets/img/redimg.jpg'
+                                    },
+                                    {
+                                        title: 'Personal Music Character',
+                                        link: 'https://github.com/srimathivadivel/YourMusicCharacter',
+                                        description: '- Developed an application using the Spotify API and OAuth 2.0 to securely fetch and analyze users top 5 songs, designed an innovative genre classification system using JavaScript and JSON to transform user music data into personality profiles, and implemented a SQL database to efficiently store and manage user data, music preferences, and generated profiles, highlighting skills in structured data storage and management.',
+                                        image: 'src/assets/img/redimg.jpg'
                                     }
                                 ].map((project) => (
                                     <Grid item xs={12} sm={6} md={4} key={project.title}>
