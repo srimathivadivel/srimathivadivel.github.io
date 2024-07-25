@@ -8,8 +8,8 @@ function App() {
 
         const moveCircle = (e) => {
             requestAnimationFrame(() => {
-                circle.style.top = `${e.clientY}px`;
-                circle.style.left = `${e.clientX}px`;
+                circle.style.top = $;{e.clientY}px;
+                circle.style.left = $;{e.clientX}px;
             });
         };
 
@@ -80,58 +80,56 @@ function App() {
                 </Grid>
             </Container>
 
-            <Container id="projects" className="projects projects-margin">
-              <Typography variant="h4" style={{ marginBottom: '20px' }}>PROJECTS</Typography>
-              <Grid container spacing={4}>
-                  {[
-                      {
-                          title: 'Personal Music Character',
-                          link: 'https://github.com/srimathivadivel/YourMusicCharacter',
-                          description: 'Developed an application using the Spotify API and OAuth 2.0 to securely fetch and analyze users top 5 songs, designed an innovative genre classification system using JavaScript and JSON to transform user music data into personality profiles, and implemented a SQL database to efficiently store and manage user data, music preferences, and generated profiles, highlighting skills in structured data storage and management.',
-                          image: 'src/assets/img/redimg.jpg'
-                      },
-                      {
-                          title: 'AirBnb Clone',
-                          link: 'https://github.com/srimathivadivel/AirBnbClone.git',
-                          description: 'Developed an iOS application using Swift that replicates core features of the Airbnb app. Implemented an intuitive user interface with SwiftUI, featuring available listings, a custom search bar for filtering, and listing images, descriptions, amenities, and pricing.',
-                          image: 'src/assets/img/redimg.jpg'
-                      },
-                      {
-                          title: 'RUSleepy',
-                          link: 'https://www.youtube.com/watch?v=w7MZEzt5yzI',
-                          description: 'Implemented Computer Vision techniques in Python, Arduino, and a serial device library to establish communication with C++ code. Collaborated in a team of three to develop a device aimed at aiding students in staying awake during extended study sessions and presented through a YouTube video.',
-                          image: 'src/assets/img/redimg.jpg'
-                      },
-                      {
-                          title: 'Hummer',
-                          link: 'https://www.figma.com/proto/p7vG1uezZwYnQsNXKjJKWc/2blue-lofi-wireframe?node-id=260-4518&scaling=scale-down&page-id=138%3A3038&starting-point-node-id=265%3A7293&show-proto-sidebar=1',
-                          description: 'An intuitive and visually engaging platform by creating wireframes, mockups, and conducted user testing to refine the design. A UI/UX case study that allows users to rate, review, and discover their favorite songs and artists.',
-                          image: 'src/assets/img/redimg.jpg'
-                      }
-                  ].map((project) => (
-                      <Grid item xs={12} sm={6} md={4} key={project.title}>
-                          <Card>
-                              <CardMedia component="img" height="200" image={project.image} alt={project.title} />
-                              <CardContent>
-                                  <Typography gutterBottom variant="h5" style={{ color: 'rgba(189, 4, 4, 0.877)', textAlign: 'center' }}>
-                                      <a href={project.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>{project.title}</a>
-                                  </Typography>
-                                  <Typography variant="body2" color="textSecondary" style={{ textAlign: 'justify' }}>
-                                      {project.description}
-                                  </Typography>
-                              </CardContent>
-                              <CardActions style={{ justifyContent: 'center' }}>
-                                  <Button size="small" color="primary" href={project.link} target="_blank" rel="noopener noreferrer">
-                                      Learn More
-                                  </Button>
-                              </CardActions>
-                          </Card>
-                      </Grid>
-                  ))}
-              </Grid>
-          </Container>
-
-
+            <Container id="projects" className="projects">
+                <Typography variant="h4" style={{ marginBottom: '20px' }}>PROJECTS</Typography>
+                <Grid container spacing={4}>
+                    {[
+                        {
+                            title: 'Hummer',
+                            link: 'https://www.figma.com/proto/p7vG1uezZwYnQsNXKjJKWc/2blue-lofi-wireframe?node-id=260-4518&scaling=scale-down&page-id=138%3A3038&starting-point-node-id=265%3A7293&show-proto-sidebar=1',
+                            description: 'An intuitive and visually engaging platform by creating wireframes, mockups, and conducted user testing to refine the design. A UI/UX case study that allows users to rate, review, and discover their favorite songs and artists.',
+                            image: 'src/assets/img/redimg.jpg'
+                        },
+                        {
+                            title: 'RUSleepy',
+                            link: 'https://www.youtube.com/watch?v=w7MZEzt5yzI',
+                            description: 'Implemented Computer Vision techniques in Python, Arduino, and a serial device library to establish communication with C++ code. Collaborated in a team of three to develop a device aimed at aiding students in staying awake during extended study sessions and presented through a YouTube video.',
+                            image: 'src/assets/img/redimg.jpg'
+                        },
+                        {
+                            title: 'AirBnb Clone',
+                            link: 'https://github.com/srimathivadivel/AirBnbClone.git',
+                            description: 'Developed an iOS application using Swift that replicates core features of the Airbnb app. Implemented an intuitive user interface with SwiftUI, featuring available listings, a custom search bar for filtering, and listing images, descriptions, amenities, and pricing.',
+                            image: 'src/assets/img/redimg.jpg'
+                        },
+                        {
+                            title: 'Personal Music Character',
+                            link: 'https://github.com/srimathivadivel/YourMusicCharacter',
+                            description: 'Developed an application using the Spotify API and OAuth 2.0 to securely fetch and analyze users top 5 songs, designed an innovative genre classification system using JavaScript and JSON to transform user music data into personality profiles, and implemented a SQL database to efficiently store and manage user data, music preferences, and generated profiles, highlighting skills in structured data storage and management.',
+                            image: 'src/assets/img/redimg.jpg'
+                        }
+                    ].map((project) => (
+                        <Grid item xs={12} sm={6} md={4} key={project.title}>
+                            <Card>
+                                <CardMedia component="img" height="200" image={project.image} alt={project.title} />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" style={{ color: 'rgba(189, 4, 4, 0.877)', textAlign: 'center' }}>
+                                        <a href={project.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>{project.title}</a>
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" style={{ textAlign: 'justify' }}>
+                                        {project.description}
+                                    </Typography>
+                                </CardContent>
+                                <CardActions style={{ justifyContent: 'center' }}>
+                                    <Button size="small" color="primary" href={project.link} target="_blank" rel="noopener noreferrer">
+                                        Learn More
+                                    </Button>
+                                </CardActions>
+                            </Card>
+                        </Grid>
+                    ))}
+                </Grid>
+            </Container>
         </React.Fragment>
     );
 }
