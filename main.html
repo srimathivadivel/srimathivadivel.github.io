@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Srimathi Vadivel - Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+            background: #f5f7f5;
+            color: #1d1d1f;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 15px 0;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-weight: 600;
+            font-size: 1.2em;
+            color: #2d7a3e;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        nav a {
+            color: #1d1d1f;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3a8f4a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2d7a3e 0%, #3a8f4a 100%);
+            padding: 120px 60px;
+            color: white;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+
+        .intro-text {
+            font-size: 1.1em;
+            max-width: 800px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 20px;
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 2px;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.7;
+        }
+
+        .section {
+            padding: 80px 60px;
+            animation: fadeInUp 0.8s ease;
+            animation-fill-mode: both;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .section:nth-child(odd) { 
+            background: white;
+        }
+        .section:nth-child(even) { 
+            background: #fafbfa;
+        }
+
+        h2 {
+            color: #2d7a3e;
+            margin-bottom: 40px;
+            font-size: 2.2em;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        h3 {
+            color: #1d1d1f;
+            margin-top: 20px;
+            margin-bottom: 8px;
+            font-size: 1.4em;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .company {
+            font-weight: 500;
+            color: #3a8f4a;
+            font-size: 1.05em;
+        }
+
+        .location {
+            color: #86868b;
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        .date {
+            color: #86868b;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 0.95em;
+        }
+
+        .experience-item {
+            margin-bottom: 50px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-top: 12px;
+        }
+
+        li {
+            margin-bottom: 12px;
+            color: #1d1d1f;
+            font-size: 1em;
+            line-height: 1.7;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .skill-category {
+            padding: 0;
+        }
+
+        .skill-category h4 {
+            color: #2d7a3e;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+
+        .skill-category p {
+            color: #1d1d1f;
+            font-size: 1em;
+            line-height: 1.9;
+            font-weight: 400;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #3a8f4a;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .project-card {
+            padding: 30px 0;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .project-card:last-child {
+            border-bottom: none;
+        }
+
+        .education-info {
+            background: rgba(45, 122, 62, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3a8f4a;
+        }
+
+        .leadership-item {
+            margin-bottom: 40px;
+        }
+
+        .leadership-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .role-title {
+            color: #3a8f4a;
+            margin-bottom: 12px;
+            font-weight: 500;
+            font-size: 1.05em;
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .interest-card {
+            background: rgba(45, 122, 62, 0.05);
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #3a8f4a;
+        }
+
+        .interest-card h4 {
+            color: #2d7a3e;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .interest-card p {
+            color: #1d1d1f;
+            line-height: 1.7;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: #3a8f4a;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .social-btn:hover {
+            background: #2d7a3e;
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav .container {
+                padding: 0 30px;
+            }
+
+            nav ul {
+                gap: 20px;
+                font-size: 0.9em;
+            }
+
+            header {
+                padding: 80px 30px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .section {
+                padding: 60px 30px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .skills-grid, .interests-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">SV</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#interests">Interests</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="container">
+            <h1>Srimathi Vadivel</h1>
+            <p class="subtitle">Software Engineer | Computer Science Student</p>
+            <p class="intro-text">I'm a Computer Science student at Rutgers who builds things that solve real problems. I've worked across the stack—from mobile apps to ML systems to enterprise tools—at companies like Dow and Hiyllo, consistently shipping features that move the needle. I also founded and lead Kappa Theta Pi, mentor students, and win hackathons when I have time. I care about writing code that creates actual value, whether that's optimizing performance, detecting fraud, or helping teams work better. Currently wrapping up my degree and heading to UKG this fall.</p>
+            <div class="contact-info">
+                <span>📍 Jersey City, NJ</span>
+                <span>🎓 Rutgers University, Class of 2026</span>
+                <span>💻 Rewriting the Code (RTC) Member</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="section" id="experience">
+            <h2>Experience & Education</h2>
+            
+            <div class="education-info">
+                <h3>Rutgers University - New Brunswick</h3>
+                <p><strong>Bachelor of Science in Computer Science</strong> | Minor in Data Science, Political Science</p>
+                <p style="color: #86868b; margin-top: 5px;">Expected Graduation: May 2026</p>
+                <p style="margin-top: 15px;"><strong>Relevant Coursework:</strong> Data Structures and Algorithms (CS112), Computer Architecture, DATA 101, Discrete Structures 1 & 2, Linear Algebra, Data Management for Data Science, Principles of Information & Data Management, Intro to Artificial Intelligence</p>
+            </div>
+
+            <h3 style="margin-top: 50px; margin-bottom: 30px;">Professional Experience</h3>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <h3>Software Engineering Intern</h3>
+                        <span class="company">UKG (Ultimate Kronos Group)</span> | <span class="location">Branchburg, NJ</span>
+                    </div>
+                    <span class="date">Incoming September 2025</span>
+                </div>
+                <p style="margin-top: 10px; color: #86868b;">UKG Workforce Ready Scheduling Platform</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <h3>Information Systems Intern</h3>
+                        <span class="company">Dow Chemicals</span> | <span class="location">Houston, TX</span>
+                    </div>
+                    <span class="date">May 2025 - August 2025</span>
+                </div>
+                <ul>
+                    <li>Led development of SCOPE using Microsoft PowerApps to enable 12+ team members to quickly numerize soft intangible value across 7 factors for 25+ existing Business IT projects</li>
+                    <li>Leveraged Copilot Studio to create an agent that standardizes business value assessment across IT projects, providing Business IT team the ability to prioritize and communicate expected value to stakeholders</li>
+                    <li>Won 1st place in Dow's Create-a-thon by creating a PowerBI dashboard with 12+ data points to enhance efficiency for 1400+ railcars</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <h3>Software Engineering Intern</h3>
+                        <span class="company">Hiyllo</span> | <span class="location">Remote</span>
+                    </div>
+                    <span class="date">January 2025 - May 2025</span>
+                </div>
+                <ul>
+                    <li>Collaborated with 2 cross-functional teams to optimize mobile application performance, reducing load times by 10% through efficient state management and code splitting</li>
+                    <li>Developed and resolved 8+ critical bug fixes using TypeScript, resulting in a 20% reduction in user-reported issues</li>
+                    <li>Enhanced chat application using Swift by designing and implementing new UI components that improved user engagement</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <h3>MIT FutureMakers Mobile App Development Mentor</h3>
+                        <span class="company">SureStart</span> | <span class="location">Remote</span>
+                    </div>
+                    <span class="date">June 2024 - August 2024</span>
+                </div>
+                <ul>
+                    <li>Guided a team of 4 to win the 2024 Create-a-thon (300+ competitors) by guiding development utilizing Machine Learning & APIs</li>
+                    <li>Provided 50+ hours of technical mentorship, resolved critical bugs, and helped teams increase efficiency by 70%</li>
+                    <li>Mentored 7-8 students total, with 100% successfully developing functional mobile applications</li>
+                </ul>
+            </div>
+
+            <div class="experience-item" style="margin-bottom: 0;">
+                <div class="job-header">
+                    <div>
+                        <h3>CS111 & CS112 Junior Assignment Developer</h3>
+                        <span class="company">Rutgers University - CS Department</span> | <span class="location">New Brunswick, NJ</span>
+                    </div>
+                    <span class="date">June 2023 - July 2024</span>
+                </div>
+                <ul>
+                    <li>Developed 4+ comprehensive CS111 & CS112 assignments for 1200+ incoming students, designing scalable application frameworks</li>
+                    <li>Mentored 2+ new Developers across 4 different high-impact projects, providing hands-on guidance in 3+ advanced data structures and algorithms using Java</li>
+                </ul>
+            </div>
+
+            <h3 style="margin-top: 50px; margin-bottom: 20px;">Technical Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Languages</h4>
+                    <p>Java, Python, Swift, C++, JavaScript, HTML, CSS, SQL, R, TypeScript</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Frameworks</h4>
+                    <p>MaterialUI, Streamlit, TypeScript, Bootstrap, SwiftUI, React.js, Node.js, Flask, PyTorch</p>
+                </div>
+                <div class="skill-category">
+                    <h4>Developer Tools</h4>
+                    <p>Git, Github, Xcode, RStudio, Google Cloud Platform, VS Code, Excel, PowerPoint, PowerBI, PowerApps</p>
+                </div>
+                <div class="skill-category">
+                    <h4>APIs/Technologies</h4>
+                    <p>OpenAI API, CoPilot API, JSON, YAML, Machine Learning Models, SMOTE</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project-card">
+                <h3>Social Media & Mental Health Dashboard <span class="badge">Streamlit</span></h3>
+                <p style="margin: 10px 0;"><strong>Technologies:</strong> Streamlit, Python, Machine Learning, Data Visualization</p>
+                <p style="margin: 15px 0; line-height: 1.8;">An interactive Streamlit dashboard analyzing the relationship between social media usage patterns and mental health indicators. Features comprehensive visualizations, user segmentation into risk categories, correlation analysis, and a mental health predictor tool that estimates wellbeing scores based on social media habits.</p>
+                <ul>
+                    <li><strong>Interactive Visualizations:</strong> Dynamic charts and graphs that update based on user selections</li>
+                    <li><strong>User Segmentation:</strong> Automatic clustering of users into risk categories based on usage patterns and mental health metrics</li>
+                    <li><strong>Mental Health Predictor:</strong> Tool that estimates mental health scores based on social media habits</li>
+                    <li><strong>Personalized Recommendations:</strong> Targeted suggestions based on usage patterns and risk profiles</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>Breastie <span class="badge">March 2025</span></h3>
+                <p style="margin: 10px 0;"><strong>Technologies:</strong> Streamlit, PyTorch, Python, OpenAI API, JSON, CSS</p>
+                <ul>
+                    <li>Developed front-end interface using Streamlit for a breast cancer detection application achieving 90%+ precision through a PyTorch neural network</li>
+                    <li>Integrated OpenAI API to provide AI-driven treatment recommendations and resources, overcoming data imbalance challenges</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>FadeFraud <span class="badge">HackHERS Winner</span> <span class="badge">January 2025</span></h3>
+                <p style="margin: 10px 0;"><strong>Technologies:</strong> React, Flask, Ngrok</p>
+                <p style="margin: 10px 0; color: #3a8f4a;"><strong>Award:</strong> Best Payment Hack Sponsored by Fiserv</p>
+                <ul>
+                    <li>Developed a real-time fraud detection system analyzing 100+ transactions with 96.4% accuracy using Random Decision Trees Classifier</li>
+                    <li>Optimized fraud detection by fine-tuning ML models and using SMOTE for imbalanced data, achieving 70% reduction in false positives/negatives</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section" id="interests">
+            <h2>Interests & Leadership</h2>
+            
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <h4>🎯 Kappa Theta Pi</h4>
+                    <p><strong>Founding Member / President, Director of External Affairs</strong></p>
+                    <p style="margin-top: 10px;">Founded and grew the organization from inception to 40+ active members across 5+ committees. Established 20+ corporate and university partnerships while leading strategic initiatives that defined our chapter's operational framework and member development standards.</p>
+                </div>
+
+                <div class="interest-card">
+                    <h4>🌟 RU Sangam</h4>
+                    <p><strong>Fundraising Chair, Community Service Chair</strong></p>
+                    <p style="margin-top: 10px;">Lead fundraising initiatives, raising $300+ through strategic events for 400+ general members. Spearhead partnerships with multiple organizations to orchestrate large-scale community engagement and fundraising campaigns.</p>
+                </div>
+
+                <div class="interest-card">
+                    <h4>👥 Mentorship & Teaching</h4>
+                    <p>Passionate about giving back to the CS community through mentorship. Have mentored 7-8 students with 100% success rate in developing functional applications, and created course materials for 1200+ incoming Rutgers CS students.</p>
+                </div>
+
+                <div class="interest-card">
+                    <h4>🏆 Hackathons & Competitions</h4>
+                    <p>Active in the hackathon community with multiple wins including HackHERS (Best Payment Hack), Dow Create-a-thon (1st place), and SureStart Create-a-thon. Love building innovative solutions under pressure and collaborating with talented teams.</p>
+                </div>
+
+                <div class="interest-card">
+                    <h4>💡 Social Impact Technology</h4>
+                    <p>Driven by projects that make a real difference—from healthcare applications like breast cancer detection systems to mental health analysis tools. Believe technology should solve meaningful problems and improve lives.</p>
+                </div>
+
+                <div class="interest-card">
+                    <h4>🚀 Rewriting the Code</h4>
+                    <p><strong>RTC Member</strong></p>
+                    <p style="margin-top: 10px;">Active member of Rewriting the Code, a community empowering women in tech through mentorship, career development, and networking opportunities with leading technology companies.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="contact" style="border-bottom: none;">
+            <h2>Let's Connect</h2>
+            <p style="font-size: 1.1em; margin-bottom: 30px; color: #1d1d1f;">I'm always interested in new opportunities, collaborations, and conversations. Feel free to reach out!</p>
+            
+            <div class="social-links">
+                <a href="mailto:sv691@scarletmail.rutgers.edu" class="social-btn">
+                    📧 Email Me
+                </a>
+                <a href="https://srimathivadivel.github.io/" target="_blank" class="social-btn">
+                    🌐 Portfolio
+                </a>
+                <a href="https://www.linkedin.com/in/srimathivadivel" target="_blank" class="social-btn">
+                    💼 LinkedIn
+                </a>
+                <a href="https://github.com/srimathivadivel" target="_blank" class="social-btn">
+                    💻 GitHub
+                </a>
+            </div>
+
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #e5e5e5;">
+                <p style="color: #86868b;"><strong>Contact Info:</strong></p>
+                <p style="color: #1d1d1f; margin-top: 10px;">📱 551-242-4366</p>
+                <p style="color: #1d1d1f;">📍 Jersey City, NJ</p>
+                <p style="color: #1d1d1f;">📧 sv691@scarletmail.rutgers.edu</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
