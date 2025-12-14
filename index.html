@@ -13,8 +13,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
-            background: #f5f7f5;
-            color: #1d1d1f;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 50%, #e0f2f1 100%);
+            color: #1b5e20;
             line-height: 1.6;
             font-weight: 400;
         }
@@ -22,11 +22,12 @@
         nav {
             position: sticky;
             top: 0;
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             z-index: 1000;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 2px solid #81c784;
             padding: 15px 0;
+            box-shadow: 0 4px 20px rgba(46, 125, 50, 0.1);
         }
 
         nav .container {
@@ -39,9 +40,13 @@
         }
 
         nav .logo {
-            font-weight: 600;
-            font-size: 1.2em;
-            color: #2d7a3e;
+            font-weight: 700;
+            font-size: 1.4em;
+            background: linear-gradient(135deg, #2e7d32, #43a047);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 2px 10px rgba(46, 125, 50, 0.2);
         }
 
         nav ul {
@@ -51,14 +56,31 @@
         }
 
         nav a {
-            color: #1d1d1f;
+            color: #2e7d32;
             text-decoration: none;
             font-size: 0.95em;
-            transition: color 0.3s;
+            font-weight: 500;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #43a047, #66bb6a);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
         }
 
         nav a:hover {
-            color: #3a8f4a;
+            color: #43a047;
         }
 
         .container {
@@ -67,17 +89,114 @@
         }
 
         header {
-            background: linear-gradient(135deg, #2d7a3e 0%, #3a8f4a 100%);
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #388e3c 100%);
             padding: 120px 60px;
             color: white;
             animation: fadeInDown 0.8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(129, 199, 132, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(102, 187, 106, 0.15) 0%, transparent 50%),
+                radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 40px 40px;
+            animation: moveBackground 25s linear infinite;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, rgba(255,255,255,0.1), transparent);
+        }
+
+        @keyframes moveBackground {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(40px, 40px) rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .header-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .profile-image-container {
+            position: relative;
+        }
+
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid rgba(129, 199, 132, 0.4);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.4),
+                0 0 0 15px rgba(129, 199, 132, 0.1),
+                0 0 0 30px rgba(102, 187, 106, 0.05);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+            }
+            50% { 
+                transform: translateY(-20px) scale(1.02);
+            }
+        }
+
+        .profile-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(129, 199, 132, 0.3) 0%, rgba(102, 187, 106, 0.2) 30%, transparent 70%);
+            animation: pulse 3s ease-in-out infinite;
+            filter: blur(20px);
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                opacity: 0.6; 
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% { 
+                opacity: 1; 
+                transform: translate(-50%, -50%) scale(1.15);
+            }
         }
 
         h1 {
             font-size: 3.5em;
             margin-bottom: 15px;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: -1px;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
         }
 
         .subtitle {
@@ -85,6 +204,7 @@
             margin-bottom: 25px;
             opacity: 0.95;
             font-weight: 400;
+            color: #c8e6c9;
         }
 
         .intro-text {
@@ -92,7 +212,8 @@
             max-width: 800px;
             line-height: 1.8;
             margin-bottom: 30px;
-            opacity: 0.9;
+            opacity: 0.92;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
         .contact-info {
@@ -104,12 +225,24 @@
             opacity: 0.9;
         }
 
+        .contact-info span {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-info span:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
         .contact-info a {
             color: white;
             text-decoration: none;
             transition: opacity 0.3s;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            padding-bottom: 2px;
         }
 
         .contact-info a:hover {
@@ -120,26 +253,63 @@
             padding: 80px 60px;
             animation: fadeInUp 0.8s ease;
             animation-fill-mode: both;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 1px solid #c8e6c9;
+            position: relative;
+            background: white;
+            transition: background 0.5s ease;
         }
 
-        .section:nth-child(odd) { 
-            background: white;
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #43a047, #66bb6a, #81c784);
+            transition: width 0.8s ease;
+            box-shadow: 0 0 20px rgba(67, 160, 71, 0.5);
         }
+
+        .section:hover::before {
+            width: 100%;
+        }
+
+        .section:hover {
+            background: linear-gradient(135deg, #ffffff 0%, #f1f8f4 100%);
+        }
+
         .section:nth-child(even) { 
-            background: #fafbfa;
+            background: linear-gradient(135deg, #f1f8f4 0%, #e8f5e9 100%);
+        }
+
+        .section:nth-child(even):hover {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8f4 100%);
         }
 
         h2 {
-            color: #2d7a3e;
+            color: #1b5e20;
             margin-bottom: 40px;
-            font-size: 2.2em;
-            font-weight: 600;
+            font-size: 2.5em;
+            font-weight: 700;
             letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #43a047, #66bb6a);
+            border-radius: 2px;
         }
 
         h3 {
-            color: #1d1d1f;
+            color: #2e7d32;
             margin-top: 20px;
             margin-bottom: 8px;
             font-size: 1.4em;
@@ -156,26 +326,40 @@
         }
 
         .company {
-            font-weight: 500;
-            color: #3a8f4a;
+            font-weight: 600;
+            color: #43a047;
             font-size: 1.05em;
         }
 
         .location {
-            color: #86868b;
+            color: #66bb6a;
             font-style: normal;
             font-weight: 400;
         }
 
         .date {
-            color: #86868b;
+            color: #81c784;
             font-style: normal;
-            font-weight: 400;
+            font-weight: 500;
             font-size: 0.95em;
+            background: rgba(129, 199, 132, 0.1);
+            padding: 4px 12px;
+            border-radius: 15px;
         }
 
         .experience-item {
             margin-bottom: 50px;
+            padding: 25px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(232, 245, 233, 0.3), rgba(255, 255, 255, 0.5));
+            border-left: 4px solid #66bb6a;
+            transition: all 0.4s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: -5px 5px 30px rgba(46, 125, 50, 0.15);
+            border-left-width: 6px;
         }
 
         ul {
@@ -185,9 +369,19 @@
 
         li {
             margin-bottom: 12px;
-            color: #1d1d1f;
+            color: #2e7d32;
             font-size: 1em;
             line-height: 1.7;
+            position: relative;
+            padding-left: 10px;
+        }
+
+        li::before {
+            content: '▸';
+            position: absolute;
+            left: -15px;
+            color: #66bb6a;
+            font-weight: bold;
         }
 
         .skills-grid {
@@ -198,40 +392,91 @@
         }
 
         .skill-category {
-            padding: 0;
+            padding: 25px;
+            background: linear-gradient(135deg, rgba(232, 245, 233, 0.5), rgba(255, 255, 255, 0.8));
+            border-radius: 15px;
+            border: 2px solid rgba(129, 199, 132, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(129, 199, 132, 0.1) 0%, transparent 70%);
+            transition: transform 0.6s ease;
+        }
+
+        .skill-category:hover::before {
+            transform: translate(-25%, -25%);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(46, 125, 50, 0.2);
+            border-color: #66bb6a;
         }
 
         .skill-category h4 {
-            color: #2d7a3e;
+            color: #1b5e20;
             margin-bottom: 15px;
-            font-size: 1.2em;
-            font-weight: 600;
+            font-size: 1.3em;
+            font-weight: 700;
             letter-spacing: -0.2px;
+            position: relative;
+            z-index: 1;
         }
 
         .skill-category p {
-            color: #1d1d1f;
+            color: #2e7d32;
             font-size: 1em;
             line-height: 1.9;
             font-weight: 400;
+            position: relative;
+            z-index: 1;
         }
 
         .badge {
             display: inline-block;
-            background: #3a8f4a;
+            background: linear-gradient(135deg, #43a047, #66bb6a);
             color: white;
-            padding: 6px 14px;
-            border-radius: 20px;
+            padding: 8px 16px;
+            border-radius: 25px;
             font-size: 0.85em;
             margin-right: 8px;
             margin-bottom: 8px;
-            font-weight: 500;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(67, 160, 71, 0.3);
+        }
+
+        .badge:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(67, 160, 71, 0.4);
+            background: linear-gradient(135deg, #66bb6a, #81c784);
         }
 
         .project-card {
-            padding: 30px 0;
+            padding: 35px;
             margin-bottom: 30px;
-            border-bottom: 1px solid #e5e5e5;
+            border-bottom: 2px solid #c8e6c9;
+            transition: all 0.4s ease;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(232, 245, 233, 0.3));
+            border-radius: 12px;
+            border-left: 5px solid #81c784;
+        }
+
+        .project-card:hover {
+            transform: translateX(15px);
+            box-shadow: -8px 8px 40px rgba(46, 125, 50, 0.15);
+            border-left-color: #43a047;
+            border-left-width: 8px;
+            background: linear-gradient(135deg, rgba(232, 245, 233, 0.5), rgba(255, 255, 255, 0.8));
         }
 
         .project-card:last-child {
@@ -239,11 +484,36 @@
         }
 
         .education-info {
-            background: rgba(45, 122, 62, 0.05);
-            padding: 30px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(232, 245, 233, 0.6), rgba(200, 230, 201, 0.3));
+            padding: 35px;
+            border-radius: 15px;
             margin-bottom: 15px;
-            border-left: 4px solid #3a8f4a;
+            border-left: 5px solid #43a047;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(46, 125, 50, 0.1);
+        }
+
+        .education-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 187, 106, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .education-info:hover::before {
+            left: 100%;
+        }
+
+        .education-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 35px rgba(46, 125, 50, 0.2);
+            border-left-width: 8px;
         }
 
         .leadership-item {
@@ -255,9 +525,9 @@
         }
 
         .role-title {
-            color: #3a8f4a;
+            color: #43a047;
             margin-bottom: 12px;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 1.05em;
         }
 
@@ -269,22 +539,52 @@
         }
 
         .interest-card {
-            background: rgba(45, 122, 62, 0.05);
-            padding: 30px;
-            border-radius: 12px;
-            border-left: 4px solid #3a8f4a;
+            background: linear-gradient(135deg, rgba(232, 245, 233, 0.6), rgba(255, 255, 255, 0.9));
+            padding: 35px;
+            border-radius: 15px;
+            border: 2px solid rgba(129, 199, 132, 0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(46, 125, 50, 0.1);
+        }
+
+        .interest-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(102, 187, 106, 0.2), transparent);
+            transition: top 0.5s ease;
+        }
+
+        .interest-card:hover::before {
+            top: 100%;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 45px rgba(46, 125, 50, 0.25);
+            border-color: #66bb6a;
+            border-width: 3px;
         }
 
         .interest-card h4 {
-            color: #2d7a3e;
+            color: #1b5e20;
             margin-bottom: 12px;
-            font-size: 1.2em;
-            font-weight: 600;
+            font-size: 1.3em;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
         }
 
         .interest-card p {
-            color: #1d1d1f;
+            color: #2e7d32;
             line-height: 1.7;
+            position: relative;
+            z-index: 1;
         }
 
         .social-links {
@@ -299,17 +599,44 @@
             align-items: center;
             gap: 10px;
             padding: 15px 30px;
-            background: #3a8f4a;
+            background: linear-gradient(135deg, #43a047, #66bb6a);
             color: white;
             text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: background 0.3s, transform 0.2s;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(67, 160, 71, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+        }
+
+        .social-btn:hover::before {
+            width: 300px;
+            height: 300px;
         }
 
         .social-btn:hover {
-            background: #2d7a3e;
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, #2e7d32, #43a047);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(67, 160, 71, 0.4);
+        }
+
+        .social-btn span {
+            position: relative;
+            z-index: 1;
         }
 
         @keyframes fadeInDown {
@@ -348,6 +675,26 @@
                 padding: 80px 30px;
             }
 
+            .header-content {
+                flex-direction: column-reverse;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .header-text {
+                min-width: 100%;
+            }
+
+            .profile-image {
+                width: 220px;
+                height: 220px;
+            }
+
+            .profile-glow {
+                width: 260px;
+                height: 260px;
+            }
+
             h1 {
                 font-size: 2.5em;
             }
@@ -369,6 +716,22 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Scroll Animation */
+        @keyframes fadeInSection {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInSection 0.8s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -387,13 +750,21 @@
 
     <header id="home">
         <div class="container">
-            <h1>Srimathi Vadivel</h1>
-            <p class="subtitle">Software Engineer | Computer Science Student</p>
-            <p class="intro-text">I'm a Computer Science student at Rutgers who builds things that solve real problems. I've worked across the stack—from mobile apps to ML systems to enterprise tools—at companies like Dow and Hiyllo, consistently shipping features that move the needle. I also founded and lead Kappa Theta Pi, mentor students, and win hackathons when I have time. I care about writing code that creates actual value, whether that's optimizing performance, detecting fraud, or helping teams work better. Currently wrapping up my degree and heading to UKG this fall.</p>
-            <div class="contact-info">
-                <span>📍 Jersey City, NJ</span>
-                <span>🎓 Rutgers University, Class of 2026</span>
-                <span>💻 Rewriting the Code (RTC) Member</span>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Srimathi Vadivel</h1>
+                    <p class="subtitle">Software Engineer | Computer Science Student</p>
+                    <p class="intro-text">I'm a Computer Science student at Rutgers who builds things that solve real problems. I've worked across the stack—from mobile apps to ML systems to enterprise tools—at companies like Dow and Hiyllo, consistently shipping features that move the needle. I also founded and lead Kappa Theta Pi, mentor students, and win hackathons when I have time. I care about writing code that creates actual value, whether that's optimizing performance, detecting fraud, or helping teams work better. Currently wrapping up my degree and heading to UKG this fall.</p>
+                    <div class="contact-info">
+                        <span>📍 Jersey City, NJ</span>
+                        <span>🎓 Rutgers University, Class of 2026</span>
+                        <span>💻 Rewriting the Code (RTC) Member</span>
+                    </div>
+                </div>
+                <div class="profile-image-container">
+                    <div class="profile-glow"></div>
+                    <img src="SrimathiHeadshot.jpg" alt="Srimathi Vadivel" class="profile-image">
+                </div>
             </div>
         </div>
     </header>
@@ -405,7 +776,7 @@
             <div class="education-info">
                 <h3>Rutgers University - New Brunswick</h3>
                 <p><strong>Bachelor of Science in Computer Science</strong> | Minor in Data Science, Political Science</p>
-                <p style="color: #86868b; margin-top: 5px;">Expected Graduation: May 2026</p>
+                <p style="color: #66bb6a; margin-top: 5px;">Expected Graduation: May 2026</p>
                 <p style="margin-top: 15px;"><strong>Relevant Coursework:</strong> Data Structures and Algorithms (CS112), Computer Architecture, DATA 101, Discrete Structures 1 & 2, Linear Algebra, Data Management for Data Science, Principles of Information & Data Management, Intro to Artificial Intelligence</p>
             </div>
 
@@ -419,7 +790,7 @@
                     </div>
                     <span class="date">Incoming September 2025</span>
                 </div>
-                <p style="margin-top: 10px; color: #86868b;">UKG Workforce Ready Scheduling Platform</p>
+                <p style="margin-top: 10px; color: #66bb6a;">UKG Workforce Ready Scheduling Platform</p>
             </div>
 
             <div class="experience-item">
@@ -529,7 +900,7 @@
             <div class="project-card">
                 <h3>FadeFraud <span class="badge">HackHERS Winner</span> <span class="badge">January 2025</span></h3>
                 <p style="margin: 10px 0;"><strong>Technologies:</strong> React, Flask, Ngrok</p>
-                <p style="margin: 10px 0; color: #3a8f4a;"><strong>Award:</strong> Best Payment Hack Sponsored by Fiserv</p>
+                <p style="margin: 10px 0; color: #43a047;"><strong>Award:</strong> Best Payment Hack Sponsored by Fiserv</p>
                 <ul>
                     <li>Developed a real-time fraud detection system analyzing 100+ transactions with 96.4% accuracy using Random Decision Trees Classifier</li>
                     <li>Optimized fraud detection by fine-tuning ML models and using SMOTE for imbalanced data, achieving 70% reduction in false positives/negatives</li>
@@ -578,28 +949,28 @@
 
         <div class="section" id="contact" style="border-bottom: none;">
             <h2>Let's Connect</h2>
-            <p style="font-size: 1.1em; margin-bottom: 30px; color: #1d1d1f;">I'm always interested in new opportunities, collaborations, and conversations. Feel free to reach out!</p>
+            <p style="font-size: 1.1em; margin-bottom: 30px; color: #2e7d32;">I'm always interested in new opportunities, collaborations, and conversations. Feel free to reach out!</p>
             
             <div class="social-links">
                 <a href="mailto:sv691@scarletmail.rutgers.edu" class="social-btn">
-                    📧 Email Me
+                    <span>📧 Email Me</span>
                 </a>
                 <a href="https://srimathivadivel.github.io/" target="_blank" class="social-btn">
-                    🌐 Portfolio
+                    <span>🌐 Portfolio</span>
                 </a>
                 <a href="https://www.linkedin.com/in/srimathivadivel" target="_blank" class="social-btn">
-                    💼 LinkedIn
+                    <span>💼 LinkedIn</span>
                 </a>
                 <a href="https://github.com/srimathivadivel" target="_blank" class="social-btn">
-                    💻 GitHub
+                    <span>💻 GitHub</span>
                 </a>
             </div>
 
-            <div style="margin-top: 50px; padding-top: 30px; border-top: 1px solid #e5e5e5;">
-                <p style="color: #86868b;"><strong>Contact Info:</strong></p>
-                <p style="color: #1d1d1f; margin-top: 10px;">📱 551-242-4366</p>
-                <p style="color: #1d1d1f;">📍 Jersey City, NJ</p>
-                <p style="color: #1d1d1f;">📧 sv691@scarletmail.rutgers.edu</p>
+            <div style="margin-top: 50px; padding-top: 30px; border-top: 2px solid #c8e6c9;">
+                <p style="color: #66bb6a;"><strong>Contact Info:</strong></p>
+                <p style="color: #2e7d32; margin-top: 10px;">📱 551-242-4366</p>
+                <p style="color: #2e7d32;">📍 Jersey City, NJ</p>
+                <p style="color: #2e7d32;">📧 sv691@scarletmail.rutgers.edu</p>
             </div>
         </div>
     </div>
