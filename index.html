@@ -732,6 +732,157 @@
         .section {
             animation: fadeInSection 0.8s ease-out;
         }
+
+        /* Gallery Styles */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
+            transition: all 0.5s ease;
+            border: 3px solid transparent;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(46, 125, 50, 0.3);
+            border-color: #66bb6a;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1) rotate(2deg);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(27, 94, 32, 0.95), rgba(27, 94, 32, 0.7), transparent);
+            padding: 25px;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        .gallery-overlay h4 {
+            color: white;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            color: #c8e6c9;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(129, 199, 132, 0.3), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+
+        .gallery-item:hover::before {
+            left: 100%;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            animation: zoomIn 0.4s ease;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 15px;
+            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            background: rgba(46, 125, 50, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: #43a047;
+            transform: rotate(90deg);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 <body>
@@ -742,6 +893,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#interests">Interests</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -908,6 +1060,67 @@
             </div>
         </div>
 
+        <div class="section" id="gallery">
+            <h2>Gallery</h2>
+            <p style="font-size: 1.1em; margin-bottom: 30px; color: #2e7d32;">A visual journey through my experiences, projects, and memorable moments.</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('image1.jpg')">
+                    <img src="image1.png" alt="Gallery Image 1">
+                    <div class="gallery-overlay">
+                    </div>
+                </div>
+                
+                <div class="gallery-item" onclick="openLightbox('image2.jpg')">
+                    <img src="image2.jpg" alt="Gallery Image 2">
+                    <div class="gallery-overlay">
+                    </div>
+                </div>
+                
+                <div class="gallery-item" onclick="openLightbox('image3.jpg')">
+                    <img src="image3.jpg" alt="Gallery Image 3">
+                    <div class="gallery-overlay">
+                    </div>
+                </div>
+                
+                <div class="gallery-item" onclick="openLightbox('image4.jpg')">
+                    <img src="image4.jpg" alt="Gallery Image 4">
+                    <div class="gallery-overlay">
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('image5.png')">
+                    <img src="image5.png" alt="Gallery Image 5">
+                    <div class="gallery-overlay">
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('image6.png')">
+                    <img src="image6.png" alt="Gallery Image 6">
+                    <div class="gallery-overlay">
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('image7.png')">
+                    <img src="image7.png" alt="Gallery Image 7">
+                    <div class="gallery-overlay">
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('image8.png')">
+                    <img src="image8.png" alt="Gallery Image 8">
+                    <div class="gallery-overlay">
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox('image9.png')">
+                    <img src="image9.png" alt="Gallery Image 9">
+                    <div class="gallery-overlay">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="section" id="interests">
             <h2>Interests & Leadership</h2>
             
@@ -974,5 +1187,33 @@
             </div>
         </div>
     </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" src="" alt="Lightbox Image">
+        </div>
+    </div>
+
+    <script>
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox').classList.add('active');
+            document.getElementById('lightbox-img').src = imageSrc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
 </body>
 </html>
